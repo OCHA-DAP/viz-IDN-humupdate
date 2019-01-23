@@ -237,6 +237,7 @@
     var humanNumberRead = d3.format(",d");
     var numdisaster = [];
     var numaffected = [];
+    var numcasualtiesvar = [];
     var tabledisaster=[['Disaster','Total']];
     var tableaffected=[['Disaster','Total']];
     var tablecasualties=[['Disaster','Total']];
@@ -306,6 +307,7 @@ function callthedata(){
     totalInjured =0;
     numdisaster = [];
     numaffected = [];
+    numcasualtiesvar = [];
     tabledisaster=[];
     tableaffected=[];
     tablecasualties=[];
@@ -335,15 +337,15 @@ function callthedata(){
                     }
                 }
 
-                if ( !numcasualties[d.Event] ){
+                if ( !numcasualtiesvar[d.Event] ){
                 	if(d.Casualties){
-                		numcasualties[d.Event] = parseInt(d.Casualties)
+                		numcasualtiesvar[d.Event] = parseInt(d.Casualties)
                 	}else{
-                		numcasualties[d.Event] = 0;
+                		numcasualtiesvar[d.Event] = 0;
                 	}
                	}else{
                		if(d.Casualties){
-               			numcasualties[d.Event] += parseInt(d.Casualties)
+               			numcasualtiesvar[d.Event] += parseInt(d.Casualties)
                		}
                	}
 
@@ -435,8 +437,8 @@ function callthedata(){
         for(x in numaffected){
             tableaffected.push([x,numaffected[x]]);
         }
-        for(x in numcasualties){
-            tablecasualties.push([x,numcasualties[x]]);
+        for(x in numcasualtiesvar){
+            tablecasualties.push([x,numcasualtiesvar[x]]);
         }
 
         tabledisaster.sort(sortFunction);
@@ -465,7 +467,6 @@ function callthedata(){
               var data = google.visualization.arrayToDataTable(tabledisaster);
 
               var options = {
-		colors:['#3d75b5'],
                 chartArea: {top:10,left:100,bottom:30,width: '70%'},
                 hAxis: {
                   minValue: 0
@@ -493,7 +494,6 @@ function callthedata(){
               var data = google.visualization.arrayToDataTable(tablecasualties);
 
               var options = {
-		colors:['#3d75b5'],
                 chartArea: {top:10,left:100,bottom:30,width: '70%'},
                 hAxis: {
                   minValue: 0
@@ -520,7 +520,6 @@ function callthedata(){
               var data = google.visualization.arrayToDataTable(tableaffected);
 
               var options = {
-		colors:['#3d75b5'],
                 chartArea: {top:10,left:100,bottom:30,width: '70%'},
                 hAxis: {
                   minValue: 0
