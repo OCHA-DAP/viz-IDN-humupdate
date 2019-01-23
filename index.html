@@ -53,6 +53,17 @@
         margin-bottom: 5px;
         /*text-align: center;*/
     }
+    .boximg{
+        /*min-width: 150px;*/
+        width: max-content;
+        /*display: inline-flex;*/
+        padding-right: 10px
+    }
+    @media only screen and (max-width: 767px) {
+      .boximg {
+        min-width: 150px;
+      }
+    }
    </style>
         
     </head>
@@ -114,8 +125,8 @@
                 <div class="row">
                 	<div class="col-md-3" style="font-size: 17px; color: grey; padding-top: 20px">
                 		<div class='media'>
-                            <div class="media-left" style="width: max-content;display: inline-flex;padding-right: 10px">
-                                <img src="images/disaster_event.png" class="img-responsive">
+                            <div class="media-left boximg" style="">
+                                <center><img src="images/disaster_event.png" class="img-responsive"></center>
                             </div>
                             <div class="media-body">
                                 <h2 class="media-heading" id="valevent" style="margin-top: 25px">-</h2>
@@ -125,8 +136,8 @@
                     </div>
                     <div class="col-md-3" style="font-size: 17px; color: grey; padding-top: 20px">
                 		<div class='media'>
-                            <div class="media-left" style="width: max-content;display: inline-flex;padding-right: 10px">
-                                <img src="images/casulaties.png" class="img-responsive">
+                            <div class="media-left boximg" style="">
+                                <center><img src="images/casulaties.png" class="img-responsive"></center>
                             </div>
                             <div class="media-body">
                                 <h2 class="media-heading" id="valcasualites" style="margin-top: 20px">-</h2>
@@ -136,8 +147,8 @@
                     </div>
                     <div class="col-md-3" style="font-size: 17px; color: grey; padding-top: 20px">
                 		<div class='media'>
-                            <div class="media-left" style="width: max-content;display: inline-flex;padding-right: 10px">
-                                <img src="images/injured2.png" class="img-responsive">
+                            <div class="media-left boximg" style="">
+                                <center><img src="images/injured2.png" class="img-responsive"></center>
                             </div>
                             <div class="media-body">
                                 <h2 class="media-heading" id="valinjured" style="margin-top: 20px">-</h2>
@@ -147,8 +158,8 @@
                     </div>
                     <div class="col-md-3" style="font-size: 17px; color: grey; padding-top: 20px">
                 		<div class='media'>
-                                <div class="media-left" style="width: max-content;display: inline-flex;padding-right: 10px">
-                                    <img src="images/popaffected.png" class="img-responsive">
+                                <div class="media-left boximg" style="">
+                                    <center><img src="images/popaffected.png" class="img-responsive"></center>
                                 </div>
                                 <div class="media-body">
                                     <h2 class="media-heading" id="valaffected" style="margin-top: 10px">-</h2>
@@ -209,7 +220,7 @@
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script>
-    var map = L.map('map').setView([-2.0361833914499954,117.92711693632814], 5);
+    var map = L.map('map').setView([-2.0361833914499954,120.92711693632814], 5);
         mapLink ='<a https://server.arcgisonline.com">OpenStreetMap</a>';
     var tiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, BNPB, OCHA',maxZoom: 7,minZoom:4});
     tiles.addTo(map);
@@ -237,7 +248,6 @@
         selectedyear = new Date();
             selectedyear = selectedyear.getFullYear();
         for(var i=2018; i<=parseInt(selectedyear); i++){
-            console.log(i);
             $('#theyear').append('<option value="'+i+'">'+i+'</option>');
         }
 
@@ -249,7 +259,6 @@
         }else{
             selectedmonth = monthNames[11];
             selectedyear -=1;
-            console.log(selectedmonth);
         }
         
         $('#themonth option[value='+selectedmonth+']').attr('selected','selected');
@@ -345,22 +354,21 @@ function callthedata(){
                 disasterCountPerProv[d.IDPROV][d.Event] += 1; 
                 disasterCountPerProv[d.IDPROV].Total +=1;
                 disasterCountPerProv[d.IDPROV].coor = {'lat':d.Ycoord,'lon':d.Xcoord};
-                if(d.Casualties){
+                
+                if(d.Casualties && parseInt(d.Casualties)){
                     totalCasualties+= parseInt(d.Casualties);
                 }
-                if(d.Affected){
+                if(d.Affected && parseInt(d.Affected)){
                     totalAffected += parseInt(d.Affected);
                 }
-                if(d.Injured){
+                if(d.Injured && parseInt(d.Injured)){
                     totalInjured += parseInt(d.Injured);
                 }
                 if(d.Event){
                     EventCount += 1;
                 }
             }
-
         })
-        console.log(numdisaster)
         if(!isavailable){
             alert('No data available at selected time');
             calltext();
