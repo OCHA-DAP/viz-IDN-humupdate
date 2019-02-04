@@ -186,7 +186,7 @@
                     <div class="col-md-4" style="font-size: 15px; color: grey; padding-top: 5px">
                         <div class="titleblock">Number of casualties</div>
                         <div class='row'>
-                            <div class="col-md-12 blockchart" id="chart_casualties" >
+                            <div class="col-md-12 blockchart" style="color: yellow" id="chart_casualties" >
                                 <!-- BAR CHART -->
                             </div>
                         </div>
@@ -467,6 +467,7 @@ function callthedata(){
               var data = google.visualization.arrayToDataTable(tabledisaster);
 
               var options = {
+                colors:['#3d75b5'],
                 chartArea: {top:10,left:100,bottom:30,width: '70%'},
                 hAxis: {
                   minValue: 0
@@ -494,6 +495,7 @@ function callthedata(){
               var data = google.visualization.arrayToDataTable(tablecasualties);
 
               var options = {
+                colors:['#3d75b5'],
                 chartArea: {top:10,left:100,bottom:30,width: '70%'},
                 hAxis: {
                   minValue: 0
@@ -520,6 +522,7 @@ function callthedata(){
               var data = google.visualization.arrayToDataTable(tableaffected);
 
               var options = {
+                colors:['#3d75b5'],
                 chartArea: {top:10,left:100,bottom:30,width: '70%'},
                 hAxis: {
                   minValue: 0
