@@ -406,7 +406,7 @@ function callthedata(){
         disasterCountPerProv.forEach(function(d){
             
             var html = '<b class="ttn">'+d.Province+'</b>'+'<br/>';
-                html += '<font class="ttt">Total Disaster : '+d.Total+'</font>'+'<hr/ class="hrtooltip">';
+                html += '<font class="ttt">Number of Disaster : '+d.Total+'</font>'+'<hr/ class="hrtooltip">';
 
             for(x in d){
                 if(x != 'Total' && x!='coor' && x!='IDPROV' && x!='Province'){
