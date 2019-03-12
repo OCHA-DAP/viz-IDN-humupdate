@@ -366,7 +366,7 @@ function changedate(){
 }
 
 function calltext(){
-    $('.pmap').html('No data available at selected time. Please choose another month and year');
+    $('.pmap').html('No data available at selected time, please select different month or year');
     d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vRvfXh_UWOqTY12zNZRLA9AYQdM9VHeG5CjqGI-LNMhBzwaH6uJ43KimulrCafnXtFxh9SaBFemMsfi/pub?output=csv',function(data){
         data.forEach(function(d,i){
             if(d.Period == selectedmonth+' '+selectedyear){
@@ -451,7 +451,7 @@ function callthedata(){
             }
         })
         if(!isavailable){
-            alert('No data is available at the selected time, Please select different month or year');
+            alert('No data is available at the selected time, please select different month or year');
             calltext();
         }
 
