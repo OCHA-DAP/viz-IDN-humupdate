@@ -243,7 +243,7 @@
 <script>
     var map = L.map('map').setView([-2.0361833914499954,117.92711693632814], 5);
         mapLink ='<a https://server.arcgisonline.com">OpenStreetMap</a>';
-    var tiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, BNPB, OCHA',maxZoom: 7,minZoom:4});
+    var tiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, BNPB',maxZoom: 7,minZoom:4});
     tiles.addTo(map);
     map.scrollWheelZoom.disable();
 
