@@ -35,6 +35,13 @@ h1,h2,h3,h4,h5{
     background: #20bfb3;
 }
 
+#disclaimer{
+  color: #dcdcdc
+  font-size:9;
+  font-style: italic;
+}
+
+
 #regions_div{
 	height: 700px;
 	margin-top: 0px;
@@ -104,7 +111,7 @@ h1,h2,h3,h4,h5{
 	visibility: hidden;
 }
 thead{
-	background: #cc478e;
+	background: #4285f4;
 }
 th{
 	color: #fff;
@@ -219,7 +226,6 @@ div.dataTables_wrapper div.dataTables_filter label {
   left: 240px;
   z-index: 100;
 }
-
 
 
 
