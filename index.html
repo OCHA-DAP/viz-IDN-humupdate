@@ -79,6 +79,12 @@
       cursor: pointer !important;
       pointer-events: auto !important;
     }
+    }
+    .headerstick{
+        position: sticky;
+        top: 0;
+        z-index: 10000;
+    }
 
    </style>
         
@@ -88,7 +94,7 @@
     <div id="loadinggif"><img src="http://fr.ethicon.com/sites/all/themes/ethicon/img/ajax-loader.gif"></div>
 
     <!-- HEADER -->
-    <div class="container">
+    <div class="container headerstick">
         <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-5 mb-3 bg-white border-bottom shadow-sm">
           <div <div class="media-left" style="width: fit-content; padding-right: 30px"><img src="images/OCHA_logo3.svg" class="img-responsive" style="width: 5rem"></div>
           <h2 class="my-0 mr-md-auto font-weight-bold" style="color: #817b7b; padding-top: 10px">INDONESIA: MONTHLY <br/> HUMANITARIAN UPDATE</h2>
